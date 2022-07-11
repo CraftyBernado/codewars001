@@ -3,3 +3,27 @@
 // Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
 
 //solution
+
+function isValidWalk(walk) {
+  let northSouth = 0;
+  let eastWest = 0;
+  if (walk.length != 10) {
+    return false;
+  } else {
+    walk.forEach((element) => {
+      if (element === "n") {
+        northSouth += 1;
+      } else if (element === "e") {
+        eastWest += 1;
+      } else if (element === "s") {
+        northSouth -= 1;
+      } else if (element === "w") {
+        eastWest -= 1;
+      }
+    });
+  }
+  if (northSouth === 0 && eastWest === 0) {
+    return true;
+  }
+}
+
