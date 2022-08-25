@@ -8,24 +8,14 @@
 
 //solution
 
-function persistence(num) {
-    strnum = String(num)
-    strnum.split("").reduce((a,b) => a*b, 1)
-    
-}
-
 
 function persistence(num) {
-    console.group(num);
     const str = num.toString();
     if (str.length === 1) {
-      console.log(`${num} is a single digit`);
-      console.groupEnd();
       return 0;
     }
     const nextNum = str.split('').reduce((a, b) => a * b, 1);
-    const v = 1 + persistence(nextNum);
-    console.log(`${num} - ${v}`);
-    console.groupEnd();
-    return v;
+    return 1 + persistence(nextNum);
   }
+
+//learnt alot about recursive functions!
